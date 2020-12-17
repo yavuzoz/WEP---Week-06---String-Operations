@@ -45,32 +45,25 @@ for (let j = 1; j <= 6; j++) {
     document.write("<br>")
 }
 
-/* Kucuk, buyuk, ozel karakterler ve sayilardan olusan 8 ile 16 (hane) uzunluklari arasinda guvenli 50 adet sifre olusturunuz. */
-var el_down = document.getElementById("geeks");
 
-/* Function to generate combination of password */
-
-function random_password_generate(max, min) {
-    var passwordChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#@!%&()/";
-    var randPwLen = Math.floor(Math.random() * (max - min + 1)) + min;
-    var randPassword = Array(randPwLen).fill(passwordChars).map(function (x) { return x[Math.floor(Math.random() * x.length)] }).join('');
-    return randPassword;
-}
-document.getElementById("generatePassword").addEventListener("click", function () {
-    random_password = random_password_generate(16, 8);
-    document.getElementById("randomPassword").value = random_password;
-});
 
 
 ///password--**buyuk harf kucuk harf ve sembollerden 8 ila 16 karakterden olusan random password
+const numberPassword = 50;
+const passwordMax = 16;
+const passwordMin = 8;
+const passwordKarakter = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#@!%&()/";
+for (index = 0; index < 51; index++) {
+    let passwordlength = Math.floor(Math.random() * (passwordMax - passwordMin + 1)) + passwordMin;
+    let randPassword = '';
+    for (let passwordIndex = 0; passwordIndex < passwordlength; passwordIndex++) {
+        let randomNumber = Math.floor(Math.random() * passwordKarakter.length);
+        randPassword += passwordKarakter.substring(randomNumber, randomNumber + 1);
+    }
+    console.log(randPassword)
+}
 
-let max = 16
-let min = 8
-let passwordKarakter = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#@!%&()/";
-let randUzunluk = Math.floor(Math.random() * (max - min + 1)) + min;
-let randPassword = Array(randUzunluk).fill(passwordKarakter).map(function (x) { return x[Math.floor(Math.random() * x.length)] }).join('');
 
-console.log(randPassword)
 
 
 
